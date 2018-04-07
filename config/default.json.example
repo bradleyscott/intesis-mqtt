@@ -1,0 +1,16 @@
+{
+    "intesis": {
+        "username": "yourusername",
+        "password": "yourpassword"
+    },
+    "mqtt": {
+        "username": "mqttusername",
+        "password": "mqttpassword",
+        "host": "mqtts://hostname",
+        "port": "29759",
+        "devices": [
+            { "topic": "living_room", "deviceId": 224571111111114 },
+            { "topic": "bedroom", "deviceId": 22457111111119 }
+        ]
+    }
+}
