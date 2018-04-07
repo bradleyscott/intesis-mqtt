@@ -4,6 +4,7 @@ var intesis = require('./intesis');
 var config = require('config').mqtt;
 var _ = require('underscore');
 
+var toBePublished = [];
 var options = {
     port: config.port,
     username: config.username,
@@ -43,10 +44,14 @@ client.on('message', (topic, message) => {
     debug('Device: %s Operation: %s Payload: %s', deviceId, operation, message)
 
     intesis.performUpdateOperation(deviceId, operation, message.toString());
-})
+});
 
-function onStateChange(deviceId, newState) {
-    debug('Publishing state changes to MQTT channels');
+function onStateChange(deviceId, newState) { 
+    setTimeout(() => { publishUpdate(deviceId, newState); }, 2500); 
+}
+
+function publishUpdate(deviceId, newState) {
+    debug('Publishing state changes to MQTT channels for device %s', deviceId);
     var deviceTopic = _(config.devices).findWhere({ deviceId: deviceId }).topic;
 
     debug('Publishing power state and operation mode...');
