@@ -28,7 +28,7 @@ var INTESIS_MAP = {
 var COMMAND_MAP = {
     power: { uid: 1, values: { off: 0, on: 1 }},
     mode: { uid: 2, values: { auto: 0, heat: 1, dry: 2, fan: 3, cool: 4 }},
-    fan_speed: { uid: 4, values: {auto: 0, quiet: 1, low: 2, medium: 3, high: 4 }},
+    fan: { uid: 4, values: {auto: 0, quiet: 1, low: 2, medium: 3, high: 4 }},
     swing: {uid: 5, values: {auto: 0, swing: 10 }},
     setpoint: {uid: 9}
 }
